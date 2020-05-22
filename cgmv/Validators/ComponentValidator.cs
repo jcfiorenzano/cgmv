@@ -1,4 +1,5 @@
-﻿using cgmv.Exceptions;
+﻿using cgmv.Contracts;
+using cgmv.Exceptions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ namespace cgmv.Validators
 {
     public static class ComponentValidator
     {
-        public static bool IsComponentValid(TypedComponent typedComponent)
+        public static ValidationResult IsComponentValid(TypedComponent typedComponent)
         {
             return getValidatorForType(typedComponent.Type).IsValid(typedComponent);
         }

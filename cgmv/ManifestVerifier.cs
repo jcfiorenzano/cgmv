@@ -5,7 +5,7 @@ using System.IO;
 
 namespace cgmv
 {
-    public class ManifestVerifier
+    public static class ManifestVerifier
     {
         public static int AssertManifestFilesInPath(string workingPath)
         {
