@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace cgmv
 {
@@ -6,7 +7,17 @@ namespace cgmv
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            try
+            {
+                int totalOfFilesVerified = ManifestVerifier.AssertManifestFilesInPath(Environment.CurrentDirectory);
+                Console.WriteLine($"{totalOfFilesVerified} file(s) inspected");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Succeed");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            catch (Exception) 
+            {
+            }
         }
     }
 }
