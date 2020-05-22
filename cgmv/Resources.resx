@@ -121,4 +121,11 @@
     <value>The type {0} is not supported yet for this tool, please contact the open source engineering alias to include it</value>
     <comment>{0} - ComponentType</comment>
   </data>
+  <data name="MissingRequiredProperty" xml:space="preserve">
+    <value>The property {0} is required and was not specified</value>
+    <comment>{0} - PropertyName</comment>
+  </data>
+  <data name="MissingValidComponentExceptionMessage" xml:space="preserve">
+    <value>There was not a valid component to validate its properties</value>
+  </data>
 </root>

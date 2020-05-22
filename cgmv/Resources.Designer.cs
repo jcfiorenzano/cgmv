@@ -68,5 +68,23 @@ namespace cgmv {
                 return ResourceManager.GetString("ComponentTypeNotSupportedMessage", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The property {0} is required and was not specified.
+        /// </summary>
+        internal static string MissingRequiredProperty {
+            get {
+                return ResourceManager.GetString("MissingRequiredProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was not a valid component to validate its properties.
+        /// </summary>
+        internal static string MissingValidComponentExceptionMessage {
+            get {
+                return ResourceManager.GetString("MissingValidComponentExceptionMessage", resourceCulture);
+            }
+        }
     }
 }
