@@ -33,42 +33,41 @@ namespace cgmv_test
         }
 
         [TestMethod]
-        public void IsValid_PropertyNameIsNull_ValidationFailMessageIsRegistered()
+        public void IsValid_PropertyNameIsNotSet_ValidationFailMessageIsRegistered()
         {
-            TypedComponent npmNameNullProperty = new TypedComponent(new NpmComponent
+            TypedComponent npmComponent = new TypedComponent(new NpmComponent
             {
-                Name = null,
                 Version = "1.0.0"
             });
 
-            var validationResult = generalComponentValidator.IsValid(npmNameNullProperty);
+            var validationResult = generalComponentValidator.IsValid(npmComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
             validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified");
         }
 
         [TestMethod]
-        public void IsValid_PropertyVersionIsNull_ValidationFailMessageIsRegistered()
+        public void IsValid_PropertyVersionIsNot_ValidationFailMessageIsRegistered()
         {
-            TypedComponent npmNameNullProperty = new TypedComponent(new NpmComponent
+            TypedComponent npmComponent = new TypedComponent(new NpmComponent
             {
                 Name = "test"
             });
 
-            var validationResult = generalComponentValidator.IsValid(npmNameNullProperty);
+            var validationResult = generalComponentValidator.IsValid(npmComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
             validationResult.Messages[0].Should().BeEquivalentTo("The property version is required and was not specified");
         }
 
         [TestMethod]
-        public void IsValid_PropertyVersionAndNameAreNull_ValidationFailMessageIsRegistered()
+        public void IsValid_PropertyVersionAndNameAreNotSet_ValidationFailMessageIsRegistered()
         {
-            TypedComponent npmNameNullProperty = new TypedComponent(new NpmComponent
+            TypedComponent npmComponent = new TypedComponent(new NpmComponent
             {
             });
 
-            var validationResult = generalComponentValidator.IsValid(npmNameNullProperty);
+            var validationResult = generalComponentValidator.IsValid(npmComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(2);
             validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified");
