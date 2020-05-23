@@ -24,10 +24,10 @@ namespace cgmv.Validators
                 ComponentType.Cargo => new GeneralComponentValidator(),
                 ComponentType.Go => new GeneralComponentValidator(),
                 ComponentType.Pod => new GeneralComponentValidator(),
+                ComponentType.RubyGems => new GeneralComponentValidator(),
                 ComponentType.Linux => new LinuxComponentValidator(),
                 ComponentType.DockerImage => new DockerImageComponentValidator(),
                 ComponentType.Maven => new MavenComponentValidator(),
-                ComponentType.RubyGems => new RubyGemsComponentValidator(),
                 ComponentType.Git => new GitComponentValidator(),
                 ComponentType.Other => new OtherComponentValidator(),
                 _ => throw new ComponentTypeNotSupportedException(type)

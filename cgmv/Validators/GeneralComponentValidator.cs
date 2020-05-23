@@ -40,6 +40,10 @@ namespace cgmv.Validators
             {
                 return ValidateGeneralProperties(typedComponent.Pod.Name, typedComponent.Pod.Version);
             }
+            if (typedComponent.RubyGems != null)
+            {
+                return ValidateGeneralProperties(typedComponent.RubyGems.Name, typedComponent.RubyGems.Version);
+            }
 
             throw new MissingValidComponentException();
         }
