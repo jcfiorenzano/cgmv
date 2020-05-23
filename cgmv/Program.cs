@@ -9,11 +9,7 @@ namespace cgmv
         {
             try
             {
-                int totalOfFilesVerified = ManifestVerifier.AssertManifestFilesInPath(Environment.CurrentDirectory);
-                Console.WriteLine($"{totalOfFilesVerified} file(s) inspected");
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Succeed");
-                Console.ForegroundColor = ConsoleColor.White;
+                var scannerResult = ManifestScanner.ScanManifestFiles(Environment.CurrentDirectory);
             }
             catch (Exception) 
             {
