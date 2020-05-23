@@ -1,4 +1,5 @@
 ﻿using cgmv.Contracts;
+using cgmv.Exceptions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,26 @@ namespace cgmv.Validators
     {
         public ValidationResult IsValid(TypedComponent typedComponent)
         {
-            throw new NotImplementedException();
+
+            if (typedComponent is null)
+            {
+                throw new ArgumentNullException(nameof(typedComponent));
+            }
+
+            if (typedComponent.DockerImage is null)
+            {
+                throw new MissingValidComponentException();
+            }
+
+            var validationResult = new ValidationResult { IsValid = true };
+
+            if (string.IsNullOrWhiteSpace(typedComponent.DockerImage.Digest))
+            {
+                validationResult.IsValid = false;
+                validationResult.Messages.Add(string.Format(Resources.MissingRequiredProperty, nameof(typedComponent.DockerImage.Digest)));
+            }
+
+            return validationResult;
         }
     }
 }
