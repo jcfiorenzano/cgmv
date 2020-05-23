@@ -36,6 +36,10 @@ namespace cgmv.Validators
             {
                 return ValidateGeneralProperties(typedComponent.Pip.Name, typedComponent.Pip.Version);
             }
+            if (typedComponent.Pod != null)
+            {
+                return ValidateGeneralProperties(typedComponent.Pod.Name, typedComponent.Pod.Version);
+            }
 
             throw new MissingValidComponentException();
         }
