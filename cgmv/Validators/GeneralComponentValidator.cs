@@ -11,7 +11,7 @@ namespace cgmv.Validators
     {
         public ValidationResult IsValid(TypedComponent typedComponent)
         {
-            if (typedComponent == null)
+            if (typedComponent is null)
             {
                 throw new ArgumentNullException(nameof(typedComponent));
             }
