@@ -23,7 +23,7 @@ namespace cgmv
             else
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Succeed!!!");
+                Console.WriteLine("Succeeded!!!");
                 Console.ForegroundColor = ConsoleColor.White;
             }
         }

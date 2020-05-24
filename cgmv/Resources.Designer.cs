@@ -70,7 +70,7 @@ namespace cgmv {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The property {0} is required and was not specified.
+        ///   Looks up a localized string similar to The property {0} is required and was not specified. This happens if the property has a typo or was omitted.
         /// </summary>
         internal static string MissingRequiredProperty {
             get {
@@ -79,7 +79,7 @@ namespace cgmv {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to There was not a valid component to validate its properties.
+        ///   Looks up a localized string similar to Missing component definition.
         /// </summary>
         internal static string MissingValidComponentExceptionMessage {
             get {

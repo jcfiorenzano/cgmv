@@ -122,10 +122,10 @@
     <comment>{0} - ComponentType</comment>
   </data>
   <data name="MissingRequiredProperty" xml:space="preserve">
-    <value>The property {0} is required and was not specified</value>
+    <value>The property {0} is required and was not specified. This happens if the property has a typo or was omitted</value>
     <comment>{0} - PropertyName</comment>
   </data>
   <data name="MissingValidComponentExceptionMessage" xml:space="preserve">
-    <value>There was not a valid component to validate its properties</value>
+    <value>Missing component definition</value>
   </data>
 </root>
