@@ -1,5 +1,4 @@
 ﻿using System;
-using System.IO;
 
 namespace cgmv
 {
@@ -10,6 +9,7 @@ namespace cgmv
             try
             {
                 var scannerResult = ManifestScanner.ScanManifestFiles(Environment.CurrentDirectory);
+                ReportPrinter.Print(scannerResult);
             }
             catch (Exception) 
             {

@@ -8,7 +8,7 @@ namespace cgmv.Contracts
     {
         public int NumberFilesScanned { get; set; }
 
-        public IList<FileReport> FileReport { get; set; } = new List<FileReport>();
+        public IList<FileReport> FilesReport { get; set; } = new List<FileReport>();
     }
 
     public class FileReport

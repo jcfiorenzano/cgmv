@@ -30,7 +30,7 @@ namespace cgmv
                     fileReport.UnexpectedExceptionMessage = ex.Message;
                 }
 
-                scanningReport.FileReport.Add(fileReport);
+                scanningReport.FilesReport.Add(fileReport);
                 counter++;
             }
 
