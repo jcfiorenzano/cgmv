@@ -10,31 +10,34 @@ namespace cgmv
 {
     public static class ManifestScanner
     {
-        public static ScanningReport ScanManifestFiles(string workingPath)
+        public static ScanningReport ScanManifestFile(string filePath)
         {
-            var filesPath = Directory.GetFiles(workingPath, searchPattern:"cgmanifest.json");
+            if (!File.Exists(filePath))
+            {
+                new FileNotFoundException(filePath);
+            }
+
             var scanningReport = new ScanningReport();
 
             int counter = 0;
-            foreach (var filePath in filesPath)
-            {
-                using var reader = new StreamReader(filePath);
-                var fileReport = new FileReport();
-                try
-                {
-                    var fileContent = reader.ReadToEnd();
-                    AssertCgManifestContent(fileContent, fileReport);
-                }
-                catch (Exception ex)
-                {
-                    fileReport.UnexpectedExceptionMessage = ex.Message;
-                }
 
-                scanningReport.FilesReport.Add(fileReport);
-                counter++;
+            using var reader = new StreamReader(filePath);
+            var fileReport = new FileReport();
+            try
+            {
+                var fileContent = reader.ReadToEnd();
+                fileReport.FilePath = filePath;
+                AssertCgManifestContent(fileContent, fileReport);
+            }
+            catch (Exception ex)
+            {
+                fileReport.UnexpectedExceptionMessage = ex.Message;
             }
 
-            scanningReport.NumberFilesScanned = counter;
+            scanningReport.FilesReport.Add(fileReport);
+            counter++;
+
+            scanningReport.NumberFilesScanned = 1;
             return scanningReport;
         }
 

@@ -4,11 +4,15 @@ namespace cgmv
 {
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Validate that the structure of cgmanifest.json files are correct
+        /// </summary>
+        /// <param name="Path">Path to the cgmanifest file</param>
+        public static void Main(string Path)
         {
             try
             {
-                var scannerResult = ManifestScanner.ScanManifestFiles(Environment.CurrentDirectory);
+                var scannerResult = ManifestScanner.ScanManifestFile(Path);
                 ReportPrinter.Print(scannerResult);
             }
             catch (Exception) 
