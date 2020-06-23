@@ -3,19 +3,20 @@ jobs:
   build:
     runs-on: windows-latest
     
-  steps:
-    - uses: actions/checkout@v1
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Install dotnet
-      run: choco install dotnetcore
+      - name: Install dotnet
+        run: choco install dotnetcore
 
-    - name: initialize nuget creds
-      run: dotnet nuget add source https://pkgs.dev.azure.com/mseng/_packaging/ComponentGovernance/nuget/v3/index.json --password $NUGET_AUTH_TOKEN --username notused --store-password-in-clear-text --name CGReader
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.NUGET_FEED_PAT }}
+      - name: initialize nuget creds
+        run: dotnet nuget add source https://pkgs.dev.azure.com/mseng/_packaging/ComponentGovernance/nuget/v3/index.json --password $NUGET_AUTH_TOKEN --username notused --store-password-in-clear-text --name CGReader
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.NUGET_FEED_PAT }}
 
-    - name: Restore packages
-      run: dotnet restore
+      - name: Restore packages
+        run: dotnet restore
 
-    - name: Run Tests
-      run: dotnet test cgmv.sln -restore:False
+      - name: Run Tests
+        run: dotnet test cgmv.sln -restore:False
