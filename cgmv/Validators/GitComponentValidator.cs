@@ -7,8 +7,16 @@ using System.Text;
 
 namespace cgmv.Validators
 {
+    /// <summary>
+    /// Validator for Git components.
+    /// </summary>
     public class GitComponentValidator : ITypedComponentValidator
     {
+        /// <summary>
+        /// Validate that the typed component is a git component with correct properties defined
+        /// </summary>
+        /// <param name="typedComponent">Component to validate properties</param>
+        /// <returns>Validation results.</returns>
         public ValidationResult IsValid(TypedComponent typedComponent)
         {
             if (typedComponent is null)

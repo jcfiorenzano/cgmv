@@ -5,8 +5,16 @@ using System;
 
 namespace cgmv.Validators
 {
+    /// <summary>
+    /// Validator for Linux components.
+    /// </summary>
     public class LinuxComponentValidator : ITypedComponentValidator
     {
+        /// <summary>
+        /// Validate that the typed component is a linux component with correct properties defined
+        /// </summary>
+        /// <param name="typedComponent">Component to validate properties</param>
+        /// <returns>Validation results.</returns>
         public ValidationResult IsValid(TypedComponent typedComponent)
         {
             if (typedComponent is null)

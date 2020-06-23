@@ -1,15 +1,19 @@
 ﻿using cgmv.Contracts;
 using cgmv.Exceptions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
-using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
 
 namespace cgmv.Validators
 {
+    /// <summary>
+    /// Validator factory
+    /// </summary>
     public static class ComponentValidator
     {
+        /// <summary>
+        /// Pick the right validator given the component's type.
+        /// </summary>
+        /// <param name="typedComponent">Component to validate</param>
+        /// <returns>Validation results.</returns>
         public static ValidationResult IsComponentValid(TypedComponent typedComponent)
         {
             return getValidatorForType(typedComponent.Type).IsValid(typedComponent);

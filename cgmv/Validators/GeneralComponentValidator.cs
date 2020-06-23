@@ -7,8 +7,24 @@ using System.Text;
 
 namespace cgmv.Validators
 {
+    /// <summary>
+    /// Validator for components that uses name and version as the main properties.
+    /// </summary>
     public class GeneralComponentValidator : ITypedComponentValidator
     {
+        /// <summary>
+        /// Validate that is a valid component with correct properties defined
+        /// This validator is used for:
+        /// - npm
+        /// - nuget
+        /// - cargo
+        /// - Go
+        /// - Pip
+        /// - Pod
+        /// - RubyGems
+        /// </summary>
+        /// <param name="typedComponent">Component to validate properties</param>
+        /// <returns>Validation results.</returns>
         public ValidationResult IsValid(TypedComponent typedComponent)
         {
             if (typedComponent is null)
