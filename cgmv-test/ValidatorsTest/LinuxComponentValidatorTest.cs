@@ -48,7 +48,7 @@ namespace cgmv_test
             var validationResult = linuxComponentValidator.IsValid(linuxComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace cgmv_test
             var validationResult = linuxComponentValidator.IsValid(linuxComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property version is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo();
         }
 
         [TestMethod]
