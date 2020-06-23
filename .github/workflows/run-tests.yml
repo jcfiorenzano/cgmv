@@ -11,7 +11,7 @@ jobs:
         run: choco install dotnetcore
 
       - name: initialize nuget creds
-        run: dotnet nuget add source https://pkgs.dev.azure.com/mseng/_packaging/ComponentGovernance/nuget/v3/index.json --password $NUGET_AUTH_TOKEN --username notused --store-password-in-clear-text --name CGReader
+        run: dotnet nuget add source https://pkgs.dev.azure.com/mseng/_packaging/ComponentGovernance/nuget/v3/index.json --password ${env:NUGET_AUTH_TOKEN} --username notused --store-password-in-clear-text --name CGReader
         env:
           NUGET_AUTH_TOKEN: ${{ secrets.NUGET_FEED_PAT }}
 
