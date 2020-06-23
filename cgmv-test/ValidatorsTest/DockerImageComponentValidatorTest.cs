@@ -41,7 +41,7 @@ namespace cgmv_test
             var validationResult = dockerImageComponentValidator.IsValid(dockerImageComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property digest is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property digest is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         public void IsValid_TypedComponentIsNull_ThrowArgumentNullException()

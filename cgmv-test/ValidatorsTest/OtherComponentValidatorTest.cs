@@ -45,7 +45,7 @@ namespace cgmv_test
             var validationResult = otherComponentValidator.IsValid(otherComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         [TestMethod]
@@ -60,7 +60,7 @@ namespace cgmv_test
             var validationResult = otherComponentValidator.IsValid(otherComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property version is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property version is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         [TestMethod]
@@ -75,7 +75,7 @@ namespace cgmv_test
             var validationResult = otherComponentValidator.IsValid(otherComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(1);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property downloadUrl is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property downloadUrl is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         [TestMethod]
@@ -88,9 +88,9 @@ namespace cgmv_test
             var validationResult = otherComponentValidator.IsValid(otherComponent);
             validationResult.IsValid.Should().BeFalse();
             validationResult.Messages.Should().HaveCount(3);
-            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified");
-            validationResult.Messages[1].Should().BeEquivalentTo("The property version is required and was not specified");
-            validationResult.Messages[2].Should().BeEquivalentTo("The property downloadUrl is required and was not specified");
+            validationResult.Messages[0].Should().BeEquivalentTo("The property name is required and was not specified. This happens if the property has a typo or was omitted");
+            validationResult.Messages[1].Should().BeEquivalentTo("The property version is required and was not specified. This happens if the property has a typo or was omitted");
+            validationResult.Messages[2].Should().BeEquivalentTo("The property downloadUrl is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
         public void IsValid_TypedComponentIsNull_ThrowArgumentNullException()
