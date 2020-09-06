@@ -1,3 +1,5 @@
+name: Run Unit Tests
+
 on: [push]
 jobs:
   build:
@@ -19,6 +21,9 @@ jobs:
 
       - name: Restore packages
         run: dotnet restore
+
+      - name: Clean
+        run: dotnet clean
 
       - name: Run Tests
         run: dotnet test cgmv.sln -restore:False
