@@ -7,8 +7,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Install dotnet
-        run: choco install dotnetcore
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.401
 
       - name: initialize nuget creds
         run: dotnet nuget add source https://pkgs.dev.azure.com/mseng/_packaging/ComponentGovernance/nuget/v3/index.json --password ${env:NUGET_AUTH_TOKEN} --username notused --store-password-in-clear-text --name CGReader
