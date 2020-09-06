@@ -70,7 +70,7 @@ namespace cgmv {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Incorrect component definition. The component type is {0}, but the component definition is for: &quot;{1}&quot;.
+        ///   Looks up a localized string similar to Incorrect component definition. The component type is {0}, but the component definition is for: {1}..
         /// </summary>
         internal static string IncorrectComponentDefinition {
             get {

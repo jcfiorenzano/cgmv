@@ -122,7 +122,7 @@
     <comment>{0} - ComponentType</comment>
   </data>
   <data name="IncorrectComponentDefinition" xml:space="preserve">
-    <value>Incorrect component definition. The component type is {0}, but the component definition is for: "{1}"</value>
+    <value>Incorrect component definition. The component type is {0}, but the component definition is for: {1}.</value>
     <comment>{0} - ComponentType
 {1} - ComponenType</comment>
   </data>

@@ -1,5 +1,4 @@
 ﻿using cgmv.Contracts;
-using cgmv.Exceptions;
 using cgmv.Validators;
 using FluentAssertions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
