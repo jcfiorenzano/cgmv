@@ -135,15 +135,7 @@ namespace cgmv.Validators
                     Messages = new List<string> { string.Format(Resources.IncorrectComponentDefinition, component.Type, ComponentType.Pip) }
                 };
             }
-            if (component.Pip != null && component.Type != ComponentType.Pip)
-            {
-                return new ValidationResult
-                {
-                    IsValid = false,
-                    Messages = new List<string> { string.Format(Resources.IncorrectComponentDefinition, component.Type, ComponentType.Pip) }
-                };
-            }
-            if (component.Pod == null && component.Type != ComponentType.Pod)
+            if (component.Pod != null && component.Type != ComponentType.Pod)
             {
                 return new ValidationResult
                 {
