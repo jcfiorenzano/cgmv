@@ -1,10 +1,10 @@
 ﻿using cgmv.Contracts;
-using cgmv.Exceptions;
 using cgmv.Validators;
 using FluentAssertions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace cgmv_test
 {
@@ -74,17 +74,30 @@ namespace cgmv_test
             validationResult.Messages[1].Should().BeEquivalentTo("The property version is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
+        [TestMethod]
         public void IsValid_TypedComponentIsNull_ThrowArgumentNullException()
         {
-            Action action = () => generalComponentValidator.IsValid(null);
-            action.Should().Throw<ArgumentNullException>();
+            Func<ValidationResult> action = () => generalComponentValidator.IsValid(null);
+            action.Should().NotThrow<Exception>();
+            var result = action();
+            result.IsValid.Should().BeFalse();
+            result.Messages.Should().HaveCount(1);
+            result.Messages.First().Should().BeEquivalentTo("The component type is missing.");
         }
 
+        [TestMethod]
         public void IsValid_GeneralComponentsAreNotPresent_ThrowArgumentNullException()
         {
-            var typedComponent = new TypedComponent();
-            Action action = () => generalComponentValidator.IsValid(typedComponent);
-            action.Should().Throw<MissingValidComponentException>();
+            var typedComponent = new TypedComponent()
+            {
+                Type = ComponentType.Npm
+            };
+            Func<ValidationResult> action = () => generalComponentValidator.IsValid(typedComponent);
+            action.Should().NotThrow<Exception>();
+            var validationResult = action();
+            validationResult.IsValid.Should().BeFalse();
+            validationResult.Messages.Should().HaveCount(1);
+            validationResult.Messages.First().Should().BeEquivalentTo("The component of type Npm do not have a component definition.");
         }
     }
 }

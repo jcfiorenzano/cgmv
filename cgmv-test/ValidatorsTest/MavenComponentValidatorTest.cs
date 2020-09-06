@@ -5,6 +5,7 @@ using FluentAssertions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace cgmv_test
 {
@@ -94,18 +95,30 @@ namespace cgmv_test
             validationResult.Messages[2].Should().BeEquivalentTo("The property version is required and was not specified. This happens if the property has a typo or was omitted");
         }
 
+        [TestMethod]
         public void IsValid_TypedComponentIsNull_ThrowArgumentNullException()
         {
-            Action action = () => mavenComponentValidator.IsValid(null);
-            action.Should().Throw<ArgumentNullException>();
+            Func<ValidationResult> action = () => mavenComponentValidator.IsValid(null);
+            action.Should().NotThrow<Exception>();
+            var result = action();
+            result.IsValid.Should().BeFalse();
+            result.Messages.Should().HaveCount(1);
+            result.Messages.First().Should().BeEquivalentTo("The component type is missing.");
         }
 
+        [TestMethod]
         public void IsValid_GeneralComponentsAreNotPresent_ThrowArgumentNullException()
         {
-            var typedComponent = new TypedComponent();
-            typedComponent.Maven = null;
-            Action action = () => mavenComponentValidator.IsValid(typedComponent);
-            action.Should().Throw<MissingValidComponentException>();
+            var typedComponent = new TypedComponent
+            {
+                Maven = null
+            };
+            Func<ValidationResult> action = () => mavenComponentValidator.IsValid(typedComponent);
+            action.Should().NotThrow<Exception>();
+            var result = action();
+            result.IsValid.Should().BeFalse();
+            result.Messages.Should().HaveCount(1);
+            result.Messages.First().Should().BeEquivalentTo("The component of type Maven do not have a component definition.");
         }
     }
 }

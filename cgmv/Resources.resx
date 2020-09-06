@@ -121,11 +121,23 @@
     <value>The type {0} is not supported yet for this tool, please contact the open source engineering alias to include it</value>
     <comment>{0} - ComponentType</comment>
   </data>
+  <data name="IncorrectComponentDefinition" xml:space="preserve">
+    <value>Incorrect component definition. The component type is {0}, but the component definition is for: "{1}"</value>
+    <comment>{0} - ComponentType
+{1} - ComponenType</comment>
+  </data>
+  <data name="MissingComponentDefinition" xml:space="preserve">
+    <value>The component of type {0} do not have a component definition.</value>
+  </data>
+  <data name="MissingComponentType" xml:space="preserve">
+    <value>The component type is missing.</value>
+  </data>
   <data name="MissingRequiredProperty" xml:space="preserve">
     <value>The property {0} is required and was not specified. This happens if the property has a typo or was omitted</value>
     <comment>{0} - PropertyName</comment>
   </data>
-  <data name="MissingValidComponentExceptionMessage" xml:space="preserve">
-    <value>Missing component definition</value>
+  <data name="TypeIsNoLongerSupported" xml:space="preserve">
+    <value>The Type {0} is no longer supported by Governance </value>
+    <comment>{0} - ComponentType</comment>
   </data>
 </root>

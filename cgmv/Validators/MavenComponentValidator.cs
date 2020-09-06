@@ -1,9 +1,6 @@
 ﻿using cgmv.Contracts;
-using cgmv.Exceptions;
 using Microsoft.VisualStudio.Services.Governance.Contracts;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace cgmv.Validators
 {
@@ -21,15 +18,23 @@ namespace cgmv.Validators
         {
             if (typedComponent is null)
             {
-                throw new ArgumentNullException(nameof(typedComponent));
+                return new ValidationResult
+                {
+                    IsValid = false,
+                    Messages = new List<string> { Resources.MissingComponentType }
+                };
             }
 
             if (typedComponent.Maven is null)
             {
-                throw new MissingValidComponentException();
+                return new ValidationResult
+                {
+                    IsValid = false,
+                    Messages = new List<string> { string.Format(Resources.MissingComponentDefinition, ComponentType.Maven) }
+                };
             }
 
-            var validationResult = new ValidationResult { IsValid = true };
+            var validationResult = new ValidationResult { IsValid = true, Messages = new List<string>()};
             
             if (string.IsNullOrWhiteSpace(typedComponent.Maven.GroupId))
             {

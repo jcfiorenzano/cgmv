@@ -21,12 +21,20 @@ namespace cgmv.Validators
         {
             if (typedComponent is null)
             {
-                throw new ArgumentNullException(nameof(typedComponent));
+                return new ValidationResult
+                {
+                    IsValid = false,
+                    Messages = new List<string> { Resources.MissingComponentType }
+                };
             }
 
             if (typedComponent.Git is null)
             {
-                throw new MissingValidComponentException();
+                return new ValidationResult
+                {
+                    IsValid = false,
+                    Messages = new List<string> { string.Format(Resources.MissingComponentDefinition, ComponentType.Git) }
+                };
             }
 
             var validationResult = new ValidationResult { IsValid = true };

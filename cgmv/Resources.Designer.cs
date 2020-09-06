@@ -70,6 +70,33 @@ namespace cgmv {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Incorrect component definition. The component type is {0}, but the component definition is for: &quot;{1}&quot;.
+        /// </summary>
+        internal static string IncorrectComponentDefinition {
+            get {
+                return ResourceManager.GetString("IncorrectComponentDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component of type {0} do not have a component definition..
+        /// </summary>
+        internal static string MissingComponentDefinition {
+            get {
+                return ResourceManager.GetString("MissingComponentDefinition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component type is missing..
+        /// </summary>
+        internal static string MissingComponentType {
+            get {
+                return ResourceManager.GetString("MissingComponentType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The property {0} is required and was not specified. This happens if the property has a typo or was omitted.
         /// </summary>
         internal static string MissingRequiredProperty {
@@ -79,11 +106,11 @@ namespace cgmv {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Missing component definition.
+        ///   Looks up a localized string similar to The Type {0} is no longer supported by Governance .
         /// </summary>
-        internal static string MissingValidComponentExceptionMessage {
+        internal static string TypeIsNoLongerSupported {
             get {
-                return ResourceManager.GetString("MissingValidComponentExceptionMessage", resourceCulture);
+                return ResourceManager.GetString("TypeIsNoLongerSupported", resourceCulture);
             }
         }
     }
