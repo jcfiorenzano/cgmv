@@ -15,7 +15,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Services.Governance.Client" Version="16.165.202005221" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.CommandLine.DragonFruit" Version="0.3.0-alpha.20253.1" />
   </ItemGroup>
 
